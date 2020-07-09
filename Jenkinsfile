@@ -1,6 +1,5 @@
 pipeline {
     agent any
-    node 
 {
 def mvn_version = ''
     
