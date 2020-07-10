@@ -12,7 +12,7 @@ pipeline {
             }
         }
         stage ('Sonar Analysis') {
-            enviroment {
+            environment {
                 scannerHome = tool 'Sonar_scanner'
             }
             steps {
@@ -20,8 +20,6 @@ pipeline {
                     sh "${scannerHome}/bin/sonar-scanner -e -Dsonar.projectKey=DeployBack -Dsonar.host.url=http://192.168.91.155:9000 -Dsonar.login=dbf2fed508bf131a04c380211f25aba01c515710 -Dsonar.java.binaries=target -Dsonar.coverage.exclusions=**/mvn/**,**/src/test/**,**/model/**,**Aplication.java "
             }
         }
-
-        
     }
 }
 
