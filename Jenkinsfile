@@ -30,6 +30,10 @@ pipeline {
                 }
             }
         }
+        stage ('Ddeploy Backend')
+            steps {
+                deploy adapters: [tomcat8(credentialsId: 'ToncatLogin', path: '', url: 'http://192.168.91.156:8001/')], contextPath: '/tasks-backend', war: 'target/*.war'
+            }
     }
 }
 
