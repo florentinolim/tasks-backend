@@ -38,7 +38,7 @@ pipeline {
         stage ('API Test') {
             steps {
                 sleep(15)
-                git credentialsId: 'github_login', url: 'https://github.com/florentinolim/tasks-api-teste'
+                git credentialsId: 'user', url: 'https://github.com/florentinolim/tasks-api-teste.git'
                 sh 'mvn test'
             }
         }
