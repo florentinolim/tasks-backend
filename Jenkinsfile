@@ -46,7 +46,7 @@ pipeline {
         stage ('Deploy Fronend'){
             steps {
                 dir('FrontEnd'){
-                    git credentialsId: 'user', url: 'https://github.com/florentinolim/tasks-api-teste'
+                    git credentialsId: 'user', url: 'https://github.com/florentinolim/tasks-frontend'
                     sh 'mvn clean package'
                     deploy adapters: [tomcat8(credentialsId: 'ToncatLogin', path: '', url: 'http://192.168.91.156:8001/')], contextPath: '/tasks', war: 'target/*.war'
                 }
