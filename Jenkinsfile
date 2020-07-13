@@ -38,7 +38,6 @@ pipeline {
         stage ('API Test') {
             steps {
                 dir('api-test'){
-                    sleep(15)
                     git credentialsId: 'user', url: 'https://github.com/florentinolim/tasks-api-teste'
                     sh 'mvn test'
                 }
