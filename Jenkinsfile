@@ -43,7 +43,7 @@ pipeline {
                 }
             }
         }    
-        stage ('Deploy Fronend'){
+        stage ('Deploy Frontend'){
             steps {
                 dir('FrontEnd'){
                     git credentialsId: 'user', url: 'https://github.com/florentinolim/tasks-frontend'
@@ -52,6 +52,14 @@ pipeline {
                 }
             }   
         }
+        stage ('Functional Test') {
+            steps {
+                dir('functional-test'){
+                    git credentialsId: 'user', url: 'https://github.com/florentinolim/tasks-functional-tests'
+                    sh 'mvn test'
+                }
+            }
+        }    
     }
 }
 
